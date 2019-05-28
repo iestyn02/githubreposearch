@@ -1,0 +1,128 @@
+/* Links */
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Icons */
+
+.icon {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+/* Header */
+
+@media screen and (max-width: 40em) {
+}
+
+/* Layout for search container */
+
+/************************/
+
+/* Transitions 			*/
+
+/************************/
+
+.main-wrap {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  // background: #f3f3f8;
+  background: #ffffff;
+  background: rgba(241, 242, 246, 0.45);
+  transition: transform 0.6s, opacity 0.8s;
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  &--hide {
+    opacity: 0.6;
+    filter: blur(5px); // transform: scale3d(0.8, 0.8, 1);
+  }
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #31363d;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+  height: 90px;
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: inherit;
+    min-width: 290px;
+
+    .header__container__left,
+    .header__container__right {
+      display: flex;
+      height: inherit;
+    }
+    .header__container__left {
+      display: flex;
+      flex: 1 1;
+      justify-content: start;
+      flex-direction: row;
+      align-items: center;
+      i {
+        font-size: 50px;
+        color: #ecf0f1;
+      }
+    }
+
+    .header__container__right {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      width: auto;
+
+      .search__btn {
+        background: transparent;
+        border: 2px solid #74deeb;
+        border-radius: 38px;
+        color: #74deeb;
+        font-family: "Poppins";
+        font-weight: 700;
+        letter-spacing: 2px;
+        font-size: 10px;
+        text-transform: uppercase;
+        padding: 12px 23px;
+        i {
+          color: #74deeb;
+        }
+
+        &:focus,
+        &:active {
+          outline: none;
+          // border:0;
+        }
+      }
+    }
+  }
+}
+
+.main__content {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+}
