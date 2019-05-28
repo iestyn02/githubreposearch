@@ -1,5 +1,5 @@
 const CONFIG_VARS = {
-  token: 'ec9b69b142afaa4b36ad7b4a54cd549178084429',
+  token: '',
   page_limit: 10
 }
 

@@ -114,8 +114,8 @@ class CommitList extends Component {
     return (
       <div className="commit__list">
         <div className={`loading__overlay ${this.state.loading ? 'loading__overlay--show' : ''}`}>
-          <div class="spinner-center">
-            <div class="loader">Loading...</div>
+          <div className="spinner-center">
+            <div className="loader">Loading...</div>
           </div>
         </div>
         <div className="commit__list__table">
@@ -133,6 +133,7 @@ class CommitList extends Component {
               <tr>
                 <th></th>
                 <th>User</th>
+                <th>Message</th>
                 <th>Commit SHA</th>
               </tr>
             </thead>
@@ -148,13 +149,16 @@ class CommitList extends Component {
                       {o.commit.committer.name}
                     </td>
                     <td>
+                      {o.commit.message}
+                    </td>
+                    <td>
                       {o.sha}
                     </td>
                   </tr>
                 );
               })}
               <tr className={`${this.state.data.length ? 'hidden' : 'no__data'}`}>
-                <td colspan="3">no results!</td>
+                <td colSpan="3">no results!</td>
               </tr>
             </tbody>
           </table>
