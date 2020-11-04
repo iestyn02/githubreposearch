@@ -14,7 +14,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.history.push(`/iestyn02/githubsearch`);
+    this.props.history.push(`/facebook/react`);
   }
 
   render() {

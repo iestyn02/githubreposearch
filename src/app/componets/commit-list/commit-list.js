@@ -10,6 +10,14 @@ const default_page_limit = page_limit || 10;
 const fetchCommits = (owner, repo, queryString = `page=1&per_page=${default_page_limit}`) => {
   return axios.get(`https://api.github.com/repos/${owner}/${repo}/commits?${queryString}`, {
     contentType: 'application/json',
+    // auth: {
+    //   'user': 'iestyn02',
+    //   'pass': token
+    // },
+    // headers: {
+    //   Accept: 'application/vnd.github.v3+json',
+    //   Authorization: `token ${''}`
+    // }
     headers: {
       Accept: 'application/vnd.github.v3+json',
       Authorization: `token ${token}`
@@ -23,15 +31,15 @@ const getRequestObj = (pageNumber, order, limit, searchString) => {
 
   // q=comitter-name only works with search commits api
   // if (searchString) {
-  //   queryString.push(`q=committer-name:${searchString}`);
+  //   queryString.push(`q=committer - name: ${ searchString }`);
   // }
 
   if (pageNumber) {
-    queryString.push(`page=${pageNumber}`);
+    queryString.push(`page = ${pageNumber}`);
   }
 
   if (limit) {
-    queryString.push(`per_page=${limit}`);
+    queryString.push(`per_page = ${limit}`);
   }
 
   return queryString.join('&');
@@ -167,7 +175,7 @@ class CommitList extends Component {
         <div className="pagination__controls">
           <button className="pagination__controls__btn" onClick={this.goToFirstPage}><i className="fi flaticon-left-arrow"></i><i className="fi flaticon-left-arrow"></i></button>
           <button className="pagination__controls__btn" onClick={this.getPreviousPage}><i className="fi flaticon-left-arrow"></i></button>
-          <span>{`Page ${this.state.pageNumber}, Showing ${(this.state.pageNumber - 1) * this.state.limit + 1}-${this.state.hold ? ((this.state.pageNumber - 1) * this.state.limit) + this.state.lastPageCount : this.state.pageNumber * this.state.limit}`}</span>
+          <span>{`Page ${this.state.pageNumber}, Showing ${(this.state.pageNumber - 1) * this.state.limit + 1}-${this.state.hold ? ((this.state.pageNumber - 1) * this.state.limit) + this.state.lastPageCount : this.state.pageNumber * this.state.limit} `}</span>
           <button className="pagination__controls__btn" onClick={this.getNextPage}><i className="fi flaticon-right-arrow"></i></button>
         </div>
       </div>
